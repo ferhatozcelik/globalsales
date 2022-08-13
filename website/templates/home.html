@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Fylo landing page with dark theme and features grid</title>
+
+    <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+    </style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+
+<main>
+    <div class="get-started">
+        <img src="{{ url_for('static', filename='images/illustration-intro.png') }}" alt="illustration-intro"
+             class="imageFlow">
+
+        <h2>All your files in one secure location, accessible anywhere.</h2>
+
+        <p>Fylo stores all your most important files in one secure location. Access them wherever
+            you need, share and collaborate with friends family, and co-workers.</p>
+
+        <button>Get Started</button>
+    </div>
+
+    <div class="grid-articles">
+        <article>
+            <img src="{{ url_for('static', filename='images/icon-access-anywhere.svg') }}" alt="icon-access-anywhere">
+
+            <h3>Access your files, anywhere</h3>
+
+            <p>The ability to use a smartphone, tablet, or computer to access your account means your
+                files follow you everywhere.</p>
+        </article>
+        <article>
+            <img src="{{ url_for('static', filename='images/icon-security.svg') }}" alt="icon-security">
+
+            <h3>Security you can trust</h3>
+
+            <p>2-factor authentication and user-controlled encryption are just a couple of the security
+                features we allow to help secure your files.</p>
+        </article>
+        <article>
+            <img src="{{ url_for('static', filename='images/icon-collaboration.svg') }}" alt="icon-collaboration">
+
+            <h3>Real-time collaboration</h3>
+
+            <p>Securely share files and folders with friends, family and colleagues for live collaboration.
+                No email attachments required.</p>
+        </article>
+        <article>
+            <img src="{{ url_for('static', filename='images/icon-any-file.svg') }}" alt="icon-any-file">
+
+            <h3>Store any type of file</h3>
+
+            <p>Whether you're sharing holidays photos or work documents, Fylo has you covered allowing for all
+                file types to be securely stored and shared.</p>
+        </article>
+    </div>
+
+
+    {% for item in adverts %}
+    <div class="quotes">
+        <div class="container">
+            <p>{{ item.add_user_id }}</p>
+            <p>{{ item.category }}</p>
+            <div class="author">
+                <img src="{{ url_for('static', filename='images/profile-1.jpg') }}" alt="profile-1">
+                <div class="person">
+                    <p class="name">{{ item.title }}</p>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="early-access-card">
+        <h2>Get early access today</h2>
+
+        <p>It only takes a minute to sign up and our free starter tier is extremely generous. If you have any
+            questions, our support team would be happy to help you.</p>
+
+        <div class="email-form">
+            <input type="text" placeholder="email@example.com">
+            <button>Get Started For Free</button>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="navbar-grid">
+
+
+        <p class="footer__text">
+            &copy; <span id="year"></span>
+            <a>Ferhat ÖZÇELİK</a> Made
+            with &hearts;
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+</body>
+
+</html>
+{% endblock %}

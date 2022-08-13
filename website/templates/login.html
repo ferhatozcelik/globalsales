@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Fylo landing page with dark theme and features grid</title>
+
+    <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    </style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<form method="POST">
+    <div class="early-login-card">
+        <h2>Login</h2>
+        <div class="email-form">
+            <input id="email"
+                   name="email"
+                   type="email"
+                   placeholder="email@example.com">
+  <br />
+            <input id="password"
+                   name="password"
+                   type="password"
+                   placeholder="*********">
+        </div>
+        <div class="email-form">
+            <button type="submit">Login</button>
+        </div>
+    </div>
+</form>
+
+<footer>
+    <div class="navbar-grid">
+
+
+        <p class="footer__text">
+            &copy; <span id="year"></span>
+            <a>Ferhat ÖZÇELİK</a> Made
+            with &hearts;
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}
